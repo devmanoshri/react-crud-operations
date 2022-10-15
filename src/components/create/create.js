@@ -6,8 +6,6 @@ import Read from "../read/read";
 export default function Create() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  //console.log(firstName);
-  // console.log(lastName);
   const sendDataToAPI = () => {
     axios.post("https://6349400fa59874146b1b1b6b.mockapi.io/crud", {
       firstName,
