@@ -3,14 +3,22 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import Read from "../read/read";
+import { useNavigate } from "react-router-dom";
+
 export default function Create() {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const sendDataToAPI = () => {
-    axios.post("https://6349400fa59874146b1b1b6b.mockapi.io/crud", {
-      firstName,
-      lastName,
-    });
+    axios
+      .post("https://6349400fa59874146b1b1b6b.mockapi.io/crud", {
+        firstName,
+        lastName,
+      })
+      .then(() => {
+        // alert("hi");
+        navigate("/read");
+      });
   };
 
   return (
